@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  public id:string;
   public students: Student[];
 
   constructor(private studentService: StudentService, private alertController: AlertController, private router: Router) {
@@ -67,5 +67,10 @@ export class HomePage {
       queryParams:{id:id}
     })
     this.studentService.getStudentById(id);
+  }
+  public update(id:string) {
+    this.router.navigate(['/update-student'], {
+      queryParams: { id: id },
+    });
   }
 }

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../models/student';
 import { StudentService } from '../services/student.service';
@@ -14,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewStudentPage implements OnInit {
 
   public student: Student;
-
-  constructor(private studentService: StudentService, private activatedRoute: ActivatedRoute) {
+  public id:string;
+  constructor(private studentService: StudentService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.student = {
       controlnumber: "",
       name: "",
@@ -36,9 +37,15 @@ export class ViewStudentPage implements OnInit {
      this.studentService.getStudentById(params.id).subscribe(item=>{
       console.log(item);
       this.student = item as Student
+      this.id=params.id;
      })
     });
     // console.log(cn);
   }
 
+  public update() {
+    this.router.navigate(['/update-student'], {
+      queryParams: { id: this.id },
+    });
+  }
 }

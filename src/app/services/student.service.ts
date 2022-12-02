@@ -80,5 +80,11 @@ export class StudentService {
     //return this.students;
     this.firestore.collection('students').add(student);
   }
-
+  public updateStudent(student: Student,id:string) {
+    //this.students.push(student);
+    //return this.students;
+    //this.firestore.collection('students').add(student);
+   this.firestore.collection('students').doc(id).update(student)
+   //this.firestore.doc('students/'+id).update(student);
+  }
 }

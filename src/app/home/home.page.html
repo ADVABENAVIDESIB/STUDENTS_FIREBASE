@@ -27,7 +27,12 @@
                             <ion-icon name="trash-outline"></ion-icon>
                         </ion-item-option>
                     </ion-item-options>
-                    <!-- <ion-item-options side="start" (ionSwipe)="getStudentByControlNumber(item.controlnumber)">
+                    <ion-item-options side="start" (ionSwipe)="update(item.id)">
+                        <ion-item-option expandable color="primary">
+                            <ion-icon name="options-outline"></ion-icon>
+                        </ion-item-option>
+                    </ion-item-options>
+                    <!--<ion-item-options side="start" (ionSwipe)="getStudentByControlNumber(item.controlnumber)">
                         <ion-item-option expandable color="primary">
                             <ion-icon name="person-circle-outline"></ion-icon>
                         </ion-item-option>
