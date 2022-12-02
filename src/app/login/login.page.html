@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary" justify-content-center>
+  <form>
+    <ion-grid>
+      <ion-row color="secondary" justify-content-center>
+        <ion-col align-self-centert size-md="6" sixe-lg="5" size-xs="12">
+          <div text-center>
+            <h3>LOGIN DE USUARIOS</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email" [(ngModel)]="user.email" placeholder="CORREO" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" [(ngModel)]="user.password" placeholder="PASSWORD" required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button color="primary" size="large" (click)="onLogin()" expand="block">LOGIN</ion-button>
+          </div>
+          <div padding>
+            <ion-button color="danger" size="large" (click)="onLogin()" expand="block">LOGIN WITH GOOGLE</ion-button>
+          </div>
+          <div padding>
+            <ion-button color="success" size="large" (click)="onLogin()" expand="block">LOGIN WITH GITHUB</ion-button>
+          </div>
+          <div>
+            <a routerLink='/register'>You haven't an account?</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

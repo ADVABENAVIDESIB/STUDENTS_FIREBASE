@@ -114,7 +114,7 @@ export class UpdateStudentPage implements OnInit {
     this.studentService.updateStudent(this.student,this.id);
     this.presentToast("top")
   
-    this.router.navigate(['..']);
+    this.router.navigate(['/home']);
     
   }
 
