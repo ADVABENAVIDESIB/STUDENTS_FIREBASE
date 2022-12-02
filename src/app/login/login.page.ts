@@ -37,4 +37,30 @@ export class LoginPage implements OnInit {
       await alert.present();
     }
   }
+  onLoginGoogle(){
+    this.authService.loginGoogleUser()
+    .then((res)=>{
+      this.onLoginRedirect();
+    }).catch(err => this.presentToast("middle"));
+  }
+  onLoginGit(){
+    this.authService.loginGitUser()
+    .then((res)=>{
+      this.onLoginRedirect();
+    }).catch(err => this.presentToast("middle"));
+  }
+
+  onLoginRedirect():void{
+    this.router.navigate(['/home']);
+  }
+
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'ERROR AL ENTRAR CON GOOGLE, VERIFIQUE',
+      duration: 2000,
+      position,
+      color:'danger'
+    });
+  }
 }

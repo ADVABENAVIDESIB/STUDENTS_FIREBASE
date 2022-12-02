@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+//import * as firebase from 'firebase/compat';
+//import * as firebase from 'firebase/compat';
+import firebase from "firebase/compat/app";
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +34,14 @@ export class AuthService {
     }catch(e){
       console.log("error al ingresar "+ e)
     }
+  }
+  loginGitUser(){
+    return this.afsAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+    /*
+    (property) signInWithPopup: (provider: firebase.auth.AuthProvider) => Promise<firebase.auth.UserCredential>
+    */
+  }
+  loginGoogleUser(){
+    return this.afsAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 }
